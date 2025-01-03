@@ -23,7 +23,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 popupView.root,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
-                false
+                true
             ).showAtLocation(view, Gravity.CENTER, 0, 0)
         }
     }
