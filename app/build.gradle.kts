@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "ru.sug4chy.receipe_app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "ru.sug4chy.receipe_app"
-        minSdk = 27
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -44,7 +47,7 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.navigation.dynamic.features.fragment)
-
+    implementation(libs.view.binding.property.delegeate)
 
     testImplementation(libs.junit)
 

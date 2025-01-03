@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Receipe-app</string>
+    <string name="allergens_popup_title">Food allergens</string>
 </resources>
