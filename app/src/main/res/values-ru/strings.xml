@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Приложение с рецептами</string>
+    <string name="allergens_popup_title">Пищевые аллергены</string>
+</resources>
