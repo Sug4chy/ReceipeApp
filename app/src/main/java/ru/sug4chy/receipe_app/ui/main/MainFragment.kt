@@ -8,6 +8,7 @@ import android.widget.PopupWindow
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.sug4chy.receipe_app.R
 import ru.sug4chy.receipe_app.databinding.FragmentMainBinding
 import ru.sug4chy.receipe_app.databinding.PopupAllergensBinding
@@ -17,6 +18,7 @@ import ru.sug4chy.receipe_app.ui.allergens.AllergensListAdapter
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val binding: FragmentMainBinding by viewBinding()
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

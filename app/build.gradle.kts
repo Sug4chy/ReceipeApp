@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -48,9 +49,17 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.navigation.dynamic.features.fragment)
     implementation(libs.view.binding.property.delegeate)
+    implementation(libs.koin.android)
+    implementation(libs.koin.test)
+    implementation(libs.koin.annotations)
+    ksp(libs.koin.ksp)
 
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+ksp {
+    arg("KOIN_CONFIG_CHECK","true")
 }
