@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="popup_allergens__title__lineHeight">41dp</dimen>
-    <dimen name="popup_allergens__title__textSize">32sp</dimen>
-</resources>

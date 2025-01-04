@@ -4,4 +4,5 @@
     <string name="allergens_popup_title">Пищевые аллергены</string>
     <string name="add_allergen_text_field_hint">Введите аллерген…</string>
     <string name="add_allergen_btn_content_description">Сохранить аллерген</string>
+    <string name="delete_allergen_btn_content_description">Удалить аллерген</string>
 </resources>
