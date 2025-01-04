@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="322dp"
+    android:layout_height="277.6dp"
+    android:background="@drawable/popup_allergens_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="47dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter"
+        android:lineHeight="41dp"
+        android:text="@string/allergens_popup_title"
+        android:textAlignment="center"
+        android:textColor="@color/main_text_color"
+        android:textFontWeight="200"
+        android:textSize="34sp"
+        tools:text="@string/allergens_popup_title" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29.5dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/add_allergen_text_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_allergens_bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/inter"
+            android:hint="@string/add_allergen_text_field_hint"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:lineHeight="19dp"
+            android:minWidth="175dp"
+            android:minHeight="32dp"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color"
+            android:textColorHint="@color/hint_color"
+            android:textSize="16sp"
+            tools:text="choco" />
+
+        <ImageButton
+            android:id="@+id/add_allergen_btn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="33dp"
+            android:background="@drawable/add_allergen_btn_bg"
+            android:contentDescription="@string/add_allergen_btn_content_description"
+            android:src="@drawable/add_allergen_btn_img" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allergens_list"
+        style="@style/allergens_recycler_style"
+        android:layout_width="278.7dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="27.4dp"
+        tools:itemCount="3"
+        tools:listitem="@layout/viewholder_allergen" />
+
+</LinearLayout>

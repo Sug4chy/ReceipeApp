@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Receipe-app</string>
+    <string name="allergens_popup_title">Food allergens</string>
+    <string name="add_allergen_text_field_hint">Enter allergen name…</string>
+    <string name="add_allergen_btn_content_description">Save allergen</string>
+    <string name="delete_allergen_btn_content_description">Delete allergen</string>
 </resources>
