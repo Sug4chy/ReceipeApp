@@ -12,7 +12,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.sug4chy.receipe_app.R
 import ru.sug4chy.receipe_app.databinding.FragmentMainBinding
 import ru.sug4chy.receipe_app.databinding.PopupAllergensBinding
-import ru.sug4chy.receipe_app.ui.allergens.Allergen
 import ru.sug4chy.receipe_app.ui.allergens.AllergensListAdapter
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -20,22 +19,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private val binding: FragmentMainBinding by viewBinding()
     private val viewModel: MainViewModel by viewModel()
 
+    private val allergensAdapter: AllergensListAdapter = AllergensListAdapter()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val popupView = PopupAllergensBinding.inflate(layoutInflater, null, false)
         popupView.allergensList.apply {
-            adapter = AllergensListAdapter().also {
-                it.submitList(
-                    listOf(
-                        Allergen(1, "potato"),
-                        Allergen(2, "orange"),
-                        Allergen(3, "apple"),
-                        Allergen(4, "choco"),
-                    )
-                )
-            }
+            adapter = this@MainFragment.allergensAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
+
+        viewModel.allergens.observe(viewLifecycleOwner) {
+            this@MainFragment.allergensAdapter.submitList(it)
+        }
+        viewModel.listAllergens()
         binding.root.post {
             PopupWindow(
                 popupView.root,

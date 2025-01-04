@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import ru.sug4chy.receipe_app.data.model.Allergen
 import ru.sug4chy.receipe_app.databinding.ViewholderAllergenBinding
 
 class AllergensListAdapter :
@@ -44,8 +45,3 @@ class AllergensListAdapter :
     override fun onBindViewHolder(holder: AllergenViewHolder, position: Int) =
         holder.bind(currentList[position])
 }
-
-data class Allergen(
-    val id: Int,
-    val name: String
-)
