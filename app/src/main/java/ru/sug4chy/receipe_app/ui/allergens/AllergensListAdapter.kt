@@ -8,15 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.sug4chy.receipe_app.data.model.Allergen
 import ru.sug4chy.receipe_app.databinding.ViewholderAllergenBinding
 
-class AllergensListAdapter :
-    ListAdapter<Allergen, AllergensListAdapter.AllergenViewHolder>(AllergenDiffUtil()) {
+class AllergensListAdapter(
+    private val onDeleteAllergenBtnClicked: (Int) -> Unit
+) : ListAdapter<Allergen, AllergensListAdapter.AllergenViewHolder>(AllergenDiffUtil()) {
 
-    class AllergenViewHolder(
+    inner class AllergenViewHolder(
         private val binding: ViewholderAllergenBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(allergen: Allergen) {
             binding.allergenName.text = allergen.name
+            binding.deleteAllergenBtn.setOnClickListener {
+                onDeleteAllergenBtnClicked(allergen.id)
+            }
         }
     }
 

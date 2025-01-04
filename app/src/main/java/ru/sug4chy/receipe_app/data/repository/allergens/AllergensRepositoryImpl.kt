@@ -19,4 +19,14 @@ internal class AllergensRepositoryImpl : AllergensRepository {
         delay(1)
         return Result.success(allergens.toList())
     }
+
+    override suspend fun add(name: String) {
+        delay(1)
+        allergens.add(Allergen(allergens.size + 1, name))
+    }
+
+    override suspend fun deleteById(id: Int) {
+        delay(1)
+        allergens.removeIf { it.id == id }
+    }
 }

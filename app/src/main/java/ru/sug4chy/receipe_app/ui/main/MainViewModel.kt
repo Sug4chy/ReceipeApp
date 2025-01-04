@@ -7,11 +7,15 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 import ru.sug4chy.receipe_app.data.model.Allergen
+import ru.sug4chy.receipe_app.domain.add_allergen.AddAllergenUseCase
+import ru.sug4chy.receipe_app.domain.delete_allergen.DeleteAllergenByIdUseCase
 import ru.sug4chy.receipe_app.domain.list_allergens.ListAllergensUseCase
 
 @KoinViewModel
 class MainViewModel(
-    private val listAllergensUseCase: ListAllergensUseCase
+    private val listAllergensUseCase: ListAllergensUseCase,
+    private val addAllergenUseCase: AddAllergenUseCase,
+    private val deleteAllergenByIdUseCase: DeleteAllergenByIdUseCase
 ) : ViewModel() {
 
     private val _allergens: MutableLiveData<List<Allergen>> = MutableLiveData()
@@ -25,6 +29,20 @@ class MainViewModel(
                     _allergens.postValue(it.getOrThrow())
                 }
             }
+        }
+    }
+
+    fun addAllergen(name: String) {
+        viewModelScope.launch {
+            addAllergenUseCase(name)
+            listAllergens()
+        }
+    }
+
+    fun deleteAllergenById(id: Int) {
+        viewModelScope.launch {
+            deleteAllergenByIdUseCase(id)
+            listAllergens()
         }
     }
 }
