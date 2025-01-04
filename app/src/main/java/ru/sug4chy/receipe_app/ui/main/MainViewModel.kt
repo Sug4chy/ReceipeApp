@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
-import ru.sug4chy.receipe_app.data.model.Allergen
+import ru.sug4chy.receipe_app.data.database.entity.Allergen
 import ru.sug4chy.receipe_app.domain.add_allergen.AddAllergenUseCase
 import ru.sug4chy.receipe_app.domain.delete_allergen.DeleteAllergenByIdUseCase
 import ru.sug4chy.receipe_app.domain.list_allergens.ListAllergensUseCase

@@ -17,12 +17,11 @@
 
     <TextView
         android:id="@+id/allergen_name"
-        android:layout_width="52.8dp"
+        android:layout_width="153.7dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="42.2dp"
         android:fontFamily="@font/inter"
         android:lineHeight="19.1dp"
-        android:textAlignment="center"
         android:textColor="@color/main_text_color"
         android:textFontWeight="200"
         android:textSize="15.8sp"
@@ -35,7 +34,6 @@
         android:id="@+id/delete_allergen_btn"
         android:layout_width="26.4dp"
         android:layout_height="26.4dp"
-        android:layout_marginStart="100.9dp"
         android:background="@drawable/delete_allergen_btn_bg"
         android:contentDescription="@string/delete_allergen_btn_content_description"
         android:src="@drawable/delete_allergen_btn_img"

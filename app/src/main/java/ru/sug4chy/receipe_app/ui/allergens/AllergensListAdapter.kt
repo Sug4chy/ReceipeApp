@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.sug4chy.receipe_app.data.model.Allergen
+import ru.sug4chy.receipe_app.data.database.entity.Allergen
 import ru.sug4chy.receipe_app.databinding.ViewholderAllergenBinding
 
 class AllergensListAdapter(
@@ -19,7 +19,7 @@ class AllergensListAdapter(
         fun bind(allergen: Allergen) {
             binding.allergenName.text = allergen.name
             binding.deleteAllergenBtn.setOnClickListener {
-                onDeleteAllergenBtnClicked(allergen.id)
+                onDeleteAllergenBtnClicked(allergen.id!!)
             }
         }
     }

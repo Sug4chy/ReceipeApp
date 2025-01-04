@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.sug4chy.receipe_app.R
-import ru.sug4chy.receipe_app.data.model.Allergen
+import ru.sug4chy.receipe_app.data.database.entity.Allergen
 import ru.sug4chy.receipe_app.databinding.FragmentMainBinding
 import ru.sug4chy.receipe_app.databinding.PopupAllergensBinding
 import ru.sug4chy.receipe_app.ui.allergens.AllergensListAdapter
@@ -29,12 +29,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         viewModel.allergens.observe(viewLifecycleOwner, ::onAllergensListed)
         viewModel.listAllergens()
+
+        binding.root.post {
+            showAllergensPopup()
+        }
     }
 
     private fun setUpPopupAllergensBinding(): PopupAllergensBinding {
         val binding = PopupAllergensBinding.inflate(layoutInflater, null, false)
         binding.allergensList.apply {
-            this.adapter = adapter
+            this.adapter = this@MainFragment.allergensAdapter
             this.layoutManager = LinearLayoutManager(context)
         }
 
@@ -55,6 +59,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     ) {
         val enteredName = popupBinding.addAllergenTextField.text.toString()
         popupBinding.addAllergenTextField.text.clear()
+        popupBinding.addAllergenTextField.clearFocus()
 
         viewModel.addAllergen(enteredName)
     }

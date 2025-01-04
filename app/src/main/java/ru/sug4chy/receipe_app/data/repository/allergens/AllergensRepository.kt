@@ -1,6 +1,6 @@
 package ru.sug4chy.receipe_app.data.repository.allergens
 
-import ru.sug4chy.receipe_app.data.model.Allergen
+import ru.sug4chy.receipe_app.data.database.entity.Allergen
 
 interface AllergensRepository {
     suspend fun findAll(): Result<List<Allergen>>

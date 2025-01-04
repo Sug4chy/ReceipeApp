@@ -4,8 +4,9 @@ import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-import org.koin.ksp.generated.*
+import org.koin.ksp.generated.module
 import ru.sug4chy.receipe_app.di.AppModule
+import ru.sug4chy.receipe_app.di.appModule
 
 class MainApplication : Application() {
 
@@ -15,7 +16,7 @@ class MainApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MainApplication)
-            modules(AppModule().module)
+            modules(appModule, AppModule().module)
         }
     }
 }

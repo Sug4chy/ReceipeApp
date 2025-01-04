@@ -53,6 +53,8 @@ dependencies {
     implementation(libs.koin.test)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
 
     testImplementation(libs.junit)
 
@@ -61,5 +63,5 @@ dependencies {
 }
 
 ksp {
-    arg("KOIN_CONFIG_CHECK","true")
+    arg("KOIN_CONFIG_CHECK", "true")
 }
