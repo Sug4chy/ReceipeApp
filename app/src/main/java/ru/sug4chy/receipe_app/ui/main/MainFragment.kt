@@ -29,10 +29,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         viewModel.allergens.observe(viewLifecycleOwner, ::onAllergensListed)
         viewModel.listAllergens()
-
-        binding.root.post {
-            showAllergensPopup()
-        }
     }
 
     private fun setUpPopupAllergensBinding(): PopupAllergensBinding {
