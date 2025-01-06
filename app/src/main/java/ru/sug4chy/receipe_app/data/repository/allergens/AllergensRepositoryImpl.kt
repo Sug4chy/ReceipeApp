@@ -10,12 +10,8 @@ internal class AllergensRepositoryImpl(
     @Provided private val allergensDao: AllergensDao
 ) : AllergensRepository {
 
-    override suspend fun findAll(): Result<List<Allergen>> =
-        try {
-            Result.success(allergensDao.findAll())
-        } catch (ex: Exception) {
-            Result.failure(ex)
-        }
+    override suspend fun findAll(): List<Allergen> =
+        allergensDao.findAll()
 
     override suspend fun add(name: String) {
         allergensDao.save(Allergen.withName(name))

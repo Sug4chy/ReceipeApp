@@ -70,6 +70,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT,
             true
-        ).showAtLocation(view, Gravity.CENTER, 0, 0)
+        ).also {
+            it.showAtLocation(view, Gravity.CENTER, 0, 0)
+            it.setOnDismissListener { binding.root.alpha = 1.0F }
+            binding.root.alpha = 0.7F
+        }
     }
 }

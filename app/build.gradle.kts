@@ -55,6 +55,8 @@ dependencies {
     ksp(libs.koin.ksp)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
+    implementation(libs.coil)
+    implementation(libs.coil.network.okhhtp)
 
     testImplementation(libs.junit)
 
