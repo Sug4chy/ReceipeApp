@@ -24,9 +24,10 @@ class FavoritesListAdapter(
             binding.isFavoriteCheckbox.isChecked = true
             binding.isFavoriteCheckbox.setOnCheckedChangeListener { _, isChecked ->
                 if (!isChecked) {
-                    onIsFavoriteCheckboxUnselected(recipe.id!!)
+                    onIsFavoriteCheckboxUnselected(recipe.id)
                 }
             }
+            binding.categories.text = recipe.categories
         }
     }
 

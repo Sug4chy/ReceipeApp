@@ -7,6 +7,7 @@ import org.koin.core.annotation.Module
 import org.koin.dsl.module
 import ru.sug4chy.receipe_app.data.database.AppDatabase
 import ru.sug4chy.receipe_app.data.database.dao.AllergensDao
+import ru.sug4chy.receipe_app.data.database.dao.FavoriteRecipesDao
 
 @Module
 @ComponentScan("ru.sug4chy.receipe_app")
@@ -21,7 +22,9 @@ val appModule = module {
         ).build()
     }
     single<AllergensDao> {
-        val db = get<AppDatabase>()
-        db.allergensDao()
+        get<AppDatabase>().allergensDao()
+    }
+    single<FavoriteRecipesDao> {
+        get<AppDatabase>().favoriteRecipesDao()
     }
 }

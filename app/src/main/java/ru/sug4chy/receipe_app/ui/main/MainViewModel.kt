@@ -25,9 +25,7 @@ class MainViewModel(
     fun listAllergens() {
         viewModelScope.launch {
             listAllergensUseCase().also {
-                if (it.isSuccess) {
-                    _allergens.postValue(it.getOrThrow())
-                }
+                _allergens.postValue(it)
             }
         }
     }

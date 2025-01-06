@@ -9,6 +9,6 @@ internal class ListAllergensUseCaseImpl(
     private val repository: AllergensRepository
 ) : ListAllergensUseCase {
 
-    override suspend fun invoke(): Result<List<Allergen>> =
+    override suspend fun invoke(): List<Allergen> =
         repository.findAll()
 }
