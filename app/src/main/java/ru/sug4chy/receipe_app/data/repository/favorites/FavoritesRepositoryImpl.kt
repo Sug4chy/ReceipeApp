@@ -15,4 +15,23 @@ class FavoritesRepositoryImpl(
 
     override suspend fun deleteById(id: Int) =
         favoriteRecipesDao.deleteById(id)
+
+    override suspend fun add(
+        name: String,
+        cookingTime: String,
+        imageURL: String,
+        manual: String,
+        categories: String,
+        ingredients: String
+    ) {
+        val favoriteRecipe = FavoriteRecipe(
+            name = name,
+            cookingTime = cookingTime,
+            imageURL = imageURL,
+            manual = manual,
+            categories = categories,
+            ingredients = ingredients
+        )
+        favoriteRecipesDao.save(favoriteRecipe)
+    }
 }
