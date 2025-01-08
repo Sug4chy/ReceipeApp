@@ -3,10 +3,12 @@ package ru.sug4chy.receipe_app.ui.favorites
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.sug4chy.receipe_app.R
+import ru.sug4chy.receipe_app.data.database.entity.FavoriteRecipe
 import ru.sug4chy.receipe_app.databinding.FragmentFavoritesBinding
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
@@ -15,7 +17,8 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
     private val viewModel: FavoritesViewModel by viewModel()
 
     private val favoritesAdapter: FavoritesListAdapter = FavoritesListAdapter(
-        ::onIsFavoriteCheckboxUnselected
+        ::onIsFavoriteCheckboxUnselected,
+        ::onRecipeClicked
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,4 +36,11 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
     private fun onIsFavoriteCheckboxUnselected(id: Int) =
         viewModel.deleteFavoriteById(id)
 
+    private fun onRecipeClicked(recipe: FavoriteRecipe) {
+        val destination =
+            FavoritesFragmentDirections.actionFavoritesFragmentToRecipeFragment(
+                recipe = recipe
+            )
+        findNavController().navigate(destination)
+    }
 }
