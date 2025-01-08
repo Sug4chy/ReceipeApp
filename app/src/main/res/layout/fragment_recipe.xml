@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_recipe_bg"
+    android:paddingHorizontal="23.8dp"
+    android:paddingVertical="31.7dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recipe_section"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fragment_recipe_recipe_section_bg">
+
+        <ImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="85.5dp"
+            android:layout_height="85.5dp"
+            android:layout_marginTop="28.5dp"
+            android:importantForAccessibility="no"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/recipe_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:lineHeight="25.6dp"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color"
+            android:textFontWeight="300"
+            android:textSize="21.1sp"
+            app:layout_constraintEnd_toEndOf="@id/recipe_image"
+            app:layout_constraintStart_toStartOf="@id/recipe_image"
+            app:layout_constraintTop_toBottomOf="@id/recipe_image"
+            tools:text="Брауни (brownie)" />
+
+        <TextView
+            android:id="@+id/you_needed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9.5dp"
+            android:fontFamily="@font/inter"
+            android:lineHeight="25.6dp"
+            android:text="@string/you_needed"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color"
+            android:textFontWeight="300"
+            android:textSize="21.1sp"
+            app:layout_constraintEnd_toEndOf="@id/recipe_name"
+            app:layout_constraintStart_toStartOf="@id/recipe_name"
+            app:layout_constraintTop_toBottomOf="@id/recipe_name" />
+
+        <TextView
+            android:id="@+id/recipe_ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9.5dp"
+            android:fontFamily="@font/inter"
+            android:lineHeight="25.6dp"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color"
+            android:textFontWeight="300"
+            android:textSize="21.1sp"
+            app:layout_constraintEnd_toEndOf="@id/recipe_name"
+            app:layout_constraintStart_toStartOf="@id/recipe_name"
+            app:layout_constraintTop_toBottomOf="@id/you_needed"
+            tools:text="eggs, potato, oil, milk ....." />
+
+        <View
+            android:id="@+id/delimiter_line"
+            android:layout_width="0dp"
+            android:layout_height="3.1dp"
+            android:layout_marginStart="31.7dp"
+            android:layout_marginTop="42.2dp"
+            android:layout_marginEnd="31.7dp"
+            android:background="@drawable/fragment_recipe_delimiter_line_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipe_ingredients" />
+
+        <TextView
+            android:id="@+id/recipe_manual"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/fragment_recipe_recipe_manual_bg"
+            android:fontFamily="@font/inter"
+            android:scrollbars="vertical"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color"
+            android:textFontWeight="300"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@id/categories"
+            app:layout_constraintEnd_toEndOf="@id/delimiter_line"
+            app:layout_constraintStart_toStartOf="@id/delimiter_line"
+            app:layout_constraintTop_toBottomOf="@id/delimiter_line" />
+
+        <TextView
+            android:id="@+id/categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7.5dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/categories"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color"
+            android:textFontWeight="300"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@id/recipe_categories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/recipe_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
+            android:fontFamily="@font/inter"
+            android:textAlignment="center"
+            android:textColor="@color/main_text_color"
+            android:textFontWeight="300"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
