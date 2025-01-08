@@ -10,7 +10,8 @@ import ru.sug4chy.receipe_app.data.database.entity.FavoriteRecipe
 import ru.sug4chy.receipe_app.databinding.ViewholderFavoriteBinding
 
 class FavoritesListAdapter(
-    private val onIsFavoriteCheckboxUnselected: (Int) -> Unit
+    private val onIsFavoriteCheckboxUnselected: (Int) -> Unit,
+    private val onRecipeClicked: (FavoriteRecipe) -> Unit
 ) : ListAdapter<FavoriteRecipe, FavoritesListAdapter.FavoriteViewHolder>(FavoriteDiffUtil()) {
 
     inner class FavoriteViewHolder(
@@ -28,6 +29,9 @@ class FavoritesListAdapter(
                 }
             }
             binding.categories.text = recipe.categories
+            binding.root.setOnClickListener {
+                onRecipeClicked(recipe)
+            }
         }
     }
 
