@@ -1,14 +1,21 @@
 package ru.sug4chy.receipe_app.domain.list_recipes
 
 import org.koin.core.annotation.Single
+import ru.sug4chy.receipe_app.di.RecipeFetcher
+
 
 @Single
-internal class ListRecipesByIngredientsUseCaseImpl (
-    private val ingredients: List<String>
+class ListRecipesByIngredientsUseCaseImpl (
+    private val recipeFetcher: RecipeFetcher
 ) : ListRecipesUseCase {
 
-    override suspend fun invoke(): List<Recipe> {
-        TODO("api give me list recipe")
+    private var ingredients: List<String> = emptyList()
+
+    fun setIngredients(newIngredients: List<String>) {
+        ingredients = newIngredients
     }
 
+    override suspend fun invoke(): List<Recipe> {
+        return recipeFetcher.getRecipesNextPage(ingredients)
+    }
 }

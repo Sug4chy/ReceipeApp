@@ -16,6 +16,7 @@ class MainViewModel(
     private val listAllergensUseCase: ListAllergensUseCase,
     private val addAllergenUseCase: AddAllergenUseCase,
     private val deleteAllergenByIdUseCase: DeleteAllergenByIdUseCase
+
 ) : ViewModel() {
 
     private val _allergens: MutableLiveData<List<Allergen>> = MutableLiveData()

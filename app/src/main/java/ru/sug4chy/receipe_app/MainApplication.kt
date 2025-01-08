@@ -7,6 +7,7 @@ import org.koin.core.context.startKoin
 import org.koin.ksp.generated.module
 import ru.sug4chy.receipe_app.di.AppModule
 import ru.sug4chy.receipe_app.di.appModule
+import ru.sug4chy.receipe_app.di.networkModule
 
 class MainApplication : Application() {
 
@@ -16,7 +17,7 @@ class MainApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MainApplication)
-            modules(appModule, AppModule().module)
+            modules(appModule, networkModule, AppModule().module)
         }
     }
 }

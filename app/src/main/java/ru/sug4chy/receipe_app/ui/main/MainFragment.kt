@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -13,7 +14,9 @@ import ru.sug4chy.receipe_app.R
 import ru.sug4chy.receipe_app.data.database.entity.Allergen
 import ru.sug4chy.receipe_app.databinding.FragmentMainBinding
 import ru.sug4chy.receipe_app.databinding.PopupAllergensBinding
+import ru.sug4chy.receipe_app.databinding.SearchSectionMainBinding
 import ru.sug4chy.receipe_app.ui.allergens.AllergensListAdapter
+import ru.sug4chy.receipe_app.ui.favorites.FavoritesListAdapter
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -27,6 +30,19 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.searchSection.searchDishes.setOnClickListener {
+            val searchText = binding.searchSection.searchText.text.toString()
+            val action = MainFragmentDirections.actionMainFragmentToSearchFragment(searchText)
+            findNavController().navigate(action)
+        }
+
+        binding.favoritesSection.setOnClickListener {
+            val action = MainFragmentDirections.actionMainFragmentToFavoritesFragment()
+            findNavController().navigate(action)
+        }
+        binding.allergicSection.setOnClickListener {
+            showAllergensPopup()
+        }
         viewModel.allergens.observe(viewLifecycleOwner, ::onAllergensListed)
         viewModel.listAllergens()
     }

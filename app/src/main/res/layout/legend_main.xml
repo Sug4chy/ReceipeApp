@@ -12,7 +12,7 @@
         android:id="@+id/favorite_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Избранное: Вы можете добавить понравившийся рецепт в избранное. Достаточно нажать на иконку сердечка в правом верхнем углу."
+        android:text="Избранное: Вы можете добавить понравившийся рецепт в избранное. Достаточно нажать на иконку сердечка в правом верхнем углу рецепта."
         android:textColor="@color/main_text_color"
         android:layout_marginBottom="8dp" />
 
