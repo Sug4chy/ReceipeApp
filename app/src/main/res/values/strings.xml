@@ -7,4 +7,5 @@
     <string name="you_needed">You nedded:</string>
     <string name="categories">Categories:</string>
     <string name="add_allergen_blank_input_error">Input must not be blank!</string>
+    <string name="no_favorites">It is empty here now!</string>
 </resources>
