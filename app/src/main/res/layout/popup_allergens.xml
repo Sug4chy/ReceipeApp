@@ -59,13 +59,26 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/validation_error_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginStart="29.5dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/inter"
+        android:textAlignment="center"
+        android:textColor="#FFFF0000"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        tools:text="@string/add_allergen_blank_input_error"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allergens_list"
         style="@style/allergens_recycler_style"
         android:layout_width="278.7dp"
         android:layout_height="100dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="9dp"
         android:layout_marginBottom="27.4dp"
         tools:itemCount="3"
         tools:listitem="@layout/viewholder_allergen" />

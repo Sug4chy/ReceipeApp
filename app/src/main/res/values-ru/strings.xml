@@ -7,4 +7,5 @@
     <string name="delete_allergen_btn_content_description">Удалить аллерген</string>
     <string name="you_needed">Ингридиенты:</string>
     <string name="categories">Категории:</string>
+    <string name="add_allergen_blank_input_error">Ввод не должен быть пустым!</string>
 </resources>
