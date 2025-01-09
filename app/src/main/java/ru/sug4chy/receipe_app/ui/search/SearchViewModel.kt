@@ -1,5 +1,6 @@
 package ru.sug4chy.receipe_app.ui.search
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,6 +19,7 @@ class SearchViewModel(
     private val addFavouriteUseCase: AddFavouriteUseCase
 ) : ViewModel() {
 
+    private var isLoading = false
     private val _recipes: MutableLiveData<List<Recipe>> = MutableLiveData()
     val recipes: LiveData<List<Recipe>>
         get() = _recipes
@@ -25,10 +27,12 @@ class SearchViewModel(
     fun listRecipes(searchQuery: String?) {
         viewModelScope.launch {
             val result = if (searchQuery.isNullOrEmpty()) {
+                listRecipesUseCase.resetPages()
                 listRecipesUseCase()
             } else {
                 val ingredients = searchQuery.split(" ").filter { it.isNotBlank() }
                 listRecipesByIngredientsUseCase.setIngredients(ingredients)
+                listRecipesByIngredientsUseCase.resetPages()
                 listRecipesByIngredientsUseCase()
             }
             _recipes.postValue(result)
@@ -47,4 +51,20 @@ class SearchViewModel(
             )
         }
     }
+
+    fun loadRecipes(searchQuery: String?) {
+        if (isLoading) return
+        isLoading = true
+        viewModelScope.launch {
+            val additionalRecipes = if (searchQuery.isNullOrEmpty()) {
+                listRecipesUseCase()
+            } else {
+                listRecipesByIngredientsUseCase()
+            }
+            val currentList = _recipes.value ?: emptyList()
+            _recipes.postValue(currentList + additionalRecipes)
+            isLoading = false
+        }
+    }
+
 }

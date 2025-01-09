@@ -29,7 +29,15 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
             this.layoutManager = LinearLayoutManager(requireContext())
         }
 
-        viewModel.recipes.observe(viewLifecycleOwner, favoritesAdapter::submitList)
+        viewModel.recipes.observe(viewLifecycleOwner) {
+            this@FavoritesFragment.binding.noFavoritesTxv.visibility = if (it.isEmpty()) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+
+            this@FavoritesFragment.favoritesAdapter.submitList(it)
+        }
         viewModel.listFavorites()
     }
 

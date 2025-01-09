@@ -14,9 +14,7 @@ import ru.sug4chy.receipe_app.R
 import ru.sug4chy.receipe_app.data.database.entity.Allergen
 import ru.sug4chy.receipe_app.databinding.FragmentMainBinding
 import ru.sug4chy.receipe_app.databinding.PopupAllergensBinding
-import ru.sug4chy.receipe_app.databinding.SearchSectionMainBinding
 import ru.sug4chy.receipe_app.ui.allergens.AllergensListAdapter
-import ru.sug4chy.receipe_app.ui.favorites.FavoritesListAdapter
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -70,6 +68,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         popupBinding: PopupAllergensBinding
     ) {
         val enteredName = popupBinding.addAllergenTextField.text.toString()
+        if (enteredName.isBlank()) {
+            popupBinding.validationErrorTxv.visibility = View.VISIBLE
+            popupBinding.addAllergenTextField.text.clear()
+            popupBinding.validationErrorTxv.text =
+                getString(R.string.add_allergen_blank_input_error)
+            return
+        }
+
+        popupBinding.validationErrorTxv.visibility = View.INVISIBLE
         popupBinding.addAllergenTextField.text.clear()
         popupBinding.addAllergenTextField.clearFocus()
 
