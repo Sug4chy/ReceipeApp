@@ -15,6 +15,10 @@ class ListRecipesByIngredientsUseCaseImpl (
         ingredients = newIngredients
     }
 
+    fun resetPages() {
+        recipeFetcher.resetPages()
+    }
+
     override suspend fun invoke(): List<Recipe> {
         return recipeFetcher.getRecipesNextPage(ingredients)
     }
