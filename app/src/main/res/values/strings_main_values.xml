@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="legend_text" translatable="false">
+        <font color="#544D8F">Избранное:</font> Вы можете добавить понравившийся рецепт в избранное. Достаточно нажать на иконку сердечка в правом верхнем углу.<br/><br/>
+        <font color="#544D8F">Аллергены:</font> Вы можете исключить ингредиенты, на которые у Вас есть аллергия.
+    </string>
+</resources>

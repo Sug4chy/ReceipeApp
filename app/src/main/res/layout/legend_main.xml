@@ -1,0 +1,25 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+
+    android:background="@drawable/popup_allergens_bg"
+    >
+
+    <TextView
+        android:id="@+id/favorite_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Избранное: Вы можете добавить понравившийся рецепт в избранное. Достаточно нажать на иконку сердечка в правом верхнем углу рецепта."
+        android:textColor="@color/main_text_color"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/allergens_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Аллергены: Вы можете исключить ингредиенты, на которые у Вас есть аллергия."
+        android:textColor="@color/main_text_color" />
+</LinearLayout>

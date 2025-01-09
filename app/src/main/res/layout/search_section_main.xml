@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginBottom="32dp">
+
+    <EditText
+        android:id="@+id/search_dishes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/popup_allergens_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="@font/inter"
+        android:hint="dish"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:lineHeight="19dp"
+        android:minHeight="32dp"
+        android:textAlignment="center"
+        android:textColor="@color/main_text_color"
+        android:textColorHint="@color/hint_color"
+        android:textSize="16sp"
+        tools:text="some dish" />
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:id="@+id/search_button"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/popup_allergens_bg"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/search_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Поиск"
+            android:fontFamily="@font/inter"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/main_text_color" />
+
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_main_search"
+            android:contentDescription="Search Icon" />
+
+
+    </LinearLayout>
+</LinearLayout>
