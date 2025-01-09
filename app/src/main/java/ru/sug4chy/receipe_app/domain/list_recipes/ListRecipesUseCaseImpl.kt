@@ -8,6 +8,10 @@ class ListRecipesUseCaseImpl(
     private val recipeFetcher: RecipeFetcher
 ): ListRecipesUseCase {
 
+    fun resetPages() {
+        recipeFetcher.resetPages()
+    }
+
     override suspend fun invoke(): List<Recipe> {
         return recipeFetcher.getRecipesNextPage()
     }

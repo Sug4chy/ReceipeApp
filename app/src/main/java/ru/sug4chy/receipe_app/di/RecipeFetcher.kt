@@ -1,5 +1,6 @@
 package ru.sug4chy.receipe_app.di
 
+import android.util.Log
 import org.koin.core.annotation.Provided
 import org.koin.core.annotation.Single
 import ru.sug4chy.receipe_app.data.api.ApiService
@@ -16,6 +17,7 @@ class RecipeFetcher(
     private val limit: Int = 10
 
     suspend fun getRecipesNextPage(ingredients: List<String>): List<Recipe> {
+        Log.d("RecipeFetcher", "Fetching recipes with offset=$offset, limit=$limit")
         val recipeDto: List<RecipeDto> = apiService.getRecipesByIngredients(ingredients, offset, limit)
         offset += limit
         return recipeDto.map {it.toSchema()}
@@ -27,7 +29,7 @@ class RecipeFetcher(
         return recipeDto.map {it.toSchema()}
     }
 
-    suspend fun resetPages() {
+    fun resetPages() {
         offset = 0
     }
 
