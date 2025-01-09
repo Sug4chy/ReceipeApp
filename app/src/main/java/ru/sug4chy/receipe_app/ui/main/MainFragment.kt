@@ -30,8 +30,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.searchSection.searchDishes.setOnClickListener {
-            val searchText = binding.searchSection.searchText.text.toString()
+        binding.searchSection.searchButton.setOnClickListener {
+            val searchText = binding.searchSection.searchDishes.text.toString()
             val action = MainFragmentDirections.actionMainFragmentToSearchFragment(searchText)
             findNavController().navigate(action)
         }

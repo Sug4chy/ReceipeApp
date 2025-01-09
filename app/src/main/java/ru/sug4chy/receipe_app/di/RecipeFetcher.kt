@@ -1,5 +1,6 @@
 package ru.sug4chy.receipe_app.di
 
+import org.koin.core.annotation.Provided
 import org.koin.core.annotation.Single
 import ru.sug4chy.receipe_app.data.api.ApiService
 import ru.sug4chy.receipe_app.data.dto.RecipeDto
@@ -8,6 +9,7 @@ import ru.sug4chy.receipe_app.domain.list_recipes.Recipe
 
 @Single
 class RecipeFetcher(
+    @Provided
     private val apiService: ApiService
 ) {
     private var offset: Int = 0
