@@ -1,6 +1,7 @@
 package ru.sug4chy.receipe_app.domain.list_recipes
 
 data class Recipe (
+    var isFavourite: Boolean,
     val name: String,
     val cook_time: String,
     val manual: String,

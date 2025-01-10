@@ -17,4 +17,19 @@ interface ApiService {
         @Query("offset") offset: Int,
         @Query("limit") limit: Int
     ): List<RecipeDto>
+
+    @GET("recipes")
+    suspend fun getRecipesWithExclusions(
+        @Query("exclude") exclude: List<String>,
+        @Query("offset") offset: Int,
+        @Query("limit") limit: Int
+    ): List<RecipeDto>
+
+    @GET("recipes/ingredients")
+    suspend fun getRecipesByIngredientsWithExclusions(
+        @Query("ingredients") ingredients: List<String>,
+        @Query("exclude") exclude: List<String>,
+        @Query("offset") offset: Int,
+        @Query("limit") limit: Int
+    ): List<RecipeDto>
 }
