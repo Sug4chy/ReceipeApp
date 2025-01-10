@@ -19,7 +19,8 @@ class SearchFragment : Fragment(R.layout.fragment_favorites) {
 
     private val searchAdapter: SearchAdapter = SearchAdapter(
         ::onIsFavoriteCheckboxSelected,
-        ::onRecipeClicked
+        ::onRecipeClicked,
+        ::onIsFavouriteCheckboxUnselected,
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,6 +54,9 @@ class SearchFragment : Fragment(R.layout.fragment_favorites) {
 
     private fun onIsFavoriteCheckboxSelected(recipe: Recipe) =
         viewModel.addFavourite(recipe)
+
+    private fun onIsFavouriteCheckboxUnselected(id: Int) =
+        viewModel.deleteFavouriteById(id)
 
     private fun onRecipeClicked(recipe: Recipe) {
         val favouriteRecipe = FavoriteRecipe(

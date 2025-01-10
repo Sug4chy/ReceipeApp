@@ -6,6 +6,7 @@ interface FavoritesRepository {
     suspend fun findAll(): List<FavoriteRecipe>
     suspend fun deleteById(id: Int)
     suspend fun add(
+        id: Int,
         name: String,
         cookingTime: String,
         imageURL: String,

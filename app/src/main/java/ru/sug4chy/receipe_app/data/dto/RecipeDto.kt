@@ -25,8 +25,9 @@ data class CategoryDto(
     @SerializedName("name_cat") val nameCat: String
 )
 
-fun RecipeDto.toSchema(): Recipe {
+fun RecipeDto.toSchema(isFavourite: Boolean = false): Recipe {
     return Recipe(
+        isFavourite = isFavourite,
         name = name,
         cook_time = cookTime,
         manual = manual,

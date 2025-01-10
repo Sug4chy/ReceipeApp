@@ -10,8 +10,9 @@ import ru.sug4chy.receipe_app.databinding.ViewholderFavoriteBinding
 import ru.sug4chy.receipe_app.domain.list_recipes.Recipe
 
 class SearchAdapter (
-    private val onIsFavoriteCheckboxUnselected: (Recipe) -> Unit,
-    private val onRecipeClicked: (Recipe) -> Unit
+    private val onIsFavoriteCheckboxSelected: (Recipe) -> Unit,
+    private val onRecipeClicked: (Recipe) -> Unit,
+    private val onIsFavoriteCheckboxUnselected: (Int) -> Unit
 ) : ListAdapter<Recipe, SearchAdapter.SearchViewHolder>(FavoriteDiffUtil()) {
 
     inner class SearchViewHolder(
@@ -22,10 +23,12 @@ class SearchAdapter (
             binding.recipeTitle.text = recipe.name
             binding.cookingTime.text = recipe.cook_time
             binding.recipeImage.load(recipe.link)
-            binding.isFavoriteCheckbox.isChecked = false
+            binding.isFavoriteCheckbox.isChecked = recipe.isFavourite
             binding.isFavoriteCheckbox.setOnCheckedChangeListener { _, isChecked ->
                 if (!isChecked) {
-                    onIsFavoriteCheckboxUnselected(recipe)
+                    onIsFavoriteCheckboxUnselected(recipe.id)
+                } else {
+                    onIsFavoriteCheckboxSelected(recipe)
                 }
             }
             binding.categories.text = recipe.category
